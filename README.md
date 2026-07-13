@@ -46,43 +46,46 @@ A fully-featured Unix shell built from scratch in C. Implements foreground/backg
 Each feature is isolated in its own `.c` / `.h` pair. `main.c` wires signal handlers and runs the read-eval loop.
 
 ```
-mini-project-1/
-├── main.c            # entry point — signal setup, REPL loop
-├── display.c/h       # prompt rendering, home directory resolution
-├── tokenizing.c/h    # semicolon + ampersand tokenizer
-├── hop.c/h           # directory navigation
-├── reveal.c/h        # directory listing
-├── seek.c/h          # recursive file/directory search
-├── log.c/h           # persistent command history
-├── proclore.c/h      # /proc-based process inspection
-├── isValid.c/h       # command dispatch, fork/exec, bg/fg tracking
-├── validHelper.c/h   # PATH-aware command existence check
-├── redirection.c/h   # I/O redirection (>, >>, <)
-├── piping.c/h        # pipe chaining
-├── signals.c/h       # signal handlers (SIGINT, SIGTSTP, SIGCHLD, ping)
-├── fgbg.c/h          # fg / bg / bring_to_foreground / continue_bg_process
-├── neonate.c/h       # latest-PID monitor, raw terminal keypress
-├── iMan.c/h          # raw TCP socket man-page fetcher
-├── myshrc.c/h        # alias + function config parser
-├── globals.c/h       # shared state (homeDir, prevDir, activities[], fg_proc)
-├── header.h          # common includes
-└── Makefile
+bhavya.sh/
+├── Makefile
+├── .myshrc              # startup aliases and functions
+├── src/
+│   ├── main.c           # entry point — signal setup, REPL loop
+│   ├── display.c/h      # prompt rendering, home directory resolution
+│   ├── tokenizing.c/h   # semicolon + ampersand tokenizer
+│   ├── hop.c/h          # directory navigation
+│   ├── reveal.c/h       # directory listing
+│   ├── seek.c/h         # recursive file/directory search
+│   ├── log.c/h          # persistent command history
+│   ├── proclore.c/h     # /proc-based process inspection
+│   ├── isValid.c/h      # command dispatch, fork/exec, bg/fg tracking
+│   ├── validHelper.c/h  # PATH-aware command existence check
+│   ├── redirection.c/h  # I/O redirection (>, >>, <)
+│   ├── piping.c/h       # pipe chaining
+│   ├── signals.c/h      # signal handlers (SIGINT, SIGTSTP, SIGCHLD, ping)
+│   ├── fgbg.c/h         # fg / bg / bring_to_foreground / continue_bg_process
+│   ├── neonate.c/h      # latest-PID monitor, raw terminal keypress
+│   ├── iMan.c/h         # raw TCP socket man-page fetcher
+│   ├── myshrc.c/h       # alias + function config parser
+│   ├── globals.c/h      # shared state (homeDir, prevDir, activities[], fg_proc)
+│   └── header.h         # common includes
+└── docs/
+    └── screenshots/     # feature demo screenshots
 ```
 
 ---
 
 ## Build & Run
 
-**Requirements:** `gcc`, `make`, Linux (uses `/proc`, `POSIX` threads, `termios`)
+**Requirements:** `gcc`, `make`, Linux (uses `/proc`, `POSIX`, `termios`)
 
 ```bash
-cd mini-project-1
 make          # produces a.out
 ./a.out       # starts the shell
 ```
 
 ```bash
-make clean    # removes object files and a.out
+make clean    # removes a.out
 ```
 
 ---

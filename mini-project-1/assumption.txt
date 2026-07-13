@@ -1,6 +1,0 @@
-Spec 5:
--previously entered checks all previously entered commands not last only
-
-Spec 9:
--alias needs to follow a specific format of :
-        "alias"<space><alias_name><space>"="<space><alias_command>
